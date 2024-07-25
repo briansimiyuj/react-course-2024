@@ -1,8 +1,18 @@
 import { Routes, RouterProvider, BrowserRouter as Router, createRoutesFromElements as createRoutes, createBrowserRouter as createRouter, Route } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import MainLayout from "./layouts/MainLayout"
 
 const router = createRouter(
   
-  createRoutes(<Route index element={ <h1>Home</h1> }/>)
+  createRoutes(
+
+    <Route path="/" element={<MainLayout/>}>
+
+      <Route index element={<HomePage/>} />
+
+    </Route>
+
+  )
 
 )
 

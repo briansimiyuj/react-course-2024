@@ -1,1 +1,2 @@
-We can create routes from an element as shown in Script component
+We can also create routes from components;  in this case MainLayout and HomePage (Script.jsx ln 9 and 11).
+So any routes we create in MainLayout route will use the MainLayout component as the layout.
