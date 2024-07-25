@@ -1,28 +1,14 @@
-import Hero from "./components/Hero"
-import HomeCards from "./components/HomeCards"
-import JobListings from "./components/JobListings"
-import Navbar from "./components/Navbar"
-import ViewAllJobs from "./components/ViewAllJobs"
+import { Routes, RouterProvider, BrowserRouter as Router, createRoutesFromElements as createRoutes, createBrowserRouter as createRouter, Route } from "react-router-dom"
+
+const router = createRouter(
+  
+  createRoutes(<Route index element={ <h1>Home</h1> }/>)
+
+)
 
 const Script = () =>{
 
-  return(
-
-    <>
-    
-      <Navbar/>
-      
-      <Hero/>
-
-      <HomeCards/>
-
-      <JobListings/>
-
-      <ViewAllJobs/>  
-
-    </>
-
-  )
+  return <RouterProvider router={router}/>
 
 }
 
