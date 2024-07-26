@@ -1,9 +1,39 @@
+import { useEffect, useState } from "react"
 import jobs from "../jobs.json"
 import JobListing from "./JobListing"
 
 const JobListings = ({ isHomePage }) =>{
 
-    const jobListings = isHomePage ? jobs.slice(0, 3) : jobs
+    const [jobs, setJobs] = useState([]),
+          [loading, setLoading] = useState(true)
+
+
+    useEffect(() =>{
+    
+        const fetchJobs = async() =>{
+        
+            try{
+                
+                const response = await fetch("http://localhost:8000/jobs"),
+                data = await response.json()
+
+                setJobs(data)
+
+            }catch(error){
+
+                console.error('Error fetching data', error)
+                
+            }finally{
+
+                setLoading(false)
+
+            }
+        
+        }
+
+        fetchJobs()
+    
+    }, [])
 
     return(
 
@@ -17,7 +47,7 @@ const JobListings = ({ isHomePage }) =>{
 
                     {
 
-                        jobListings.map(job =>{
+                        jobs.map(job =>{
                             
                             return(
                             
