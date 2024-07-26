@@ -12,10 +12,12 @@ const JobListings = ({ isHomePage }) =>{
     useEffect(() =>{
     
         const fetchJobs = async() =>{
+
+            const API_URL = isHomePage ? "http://localhost:8000/jobs?_limit=3" : "http://localhost:8000/jobs"
         
             try{
                 
-                const response = await fetch("http://localhost:8000/jobs"),
+                const response = await fetch(API_URL), 
                 data = await response.json()
 
                 setJobs(data)
