@@ -8,9 +8,19 @@ import AddJob from "./pages/AddJob"
 
 const Script = () =>{
   
-  const addJob = (newJob) =>{
+  const addJob = async(newJob) =>{
   
-    console.log(newJob) 
+    const response = await fetch('/api/jobs', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newJob)
+
+    })
+
+    return
   
   }
   
