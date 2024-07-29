@@ -23,6 +23,13 @@ const Script = () =>{
     return
   
   }
+
+
+  const deleteJob = async(id) =>{
+  
+    console.log('delete job', id)
+  
+  }
   
   const router = createRouter(
     
@@ -36,7 +43,7 @@ const Script = () =>{
   
         <Route path="/add-job" element={<AddJob addJobSubmit={addJob}/>}/>
         
-        <Route path="/job/:id" element={<JobPage/>} loader={jobLoader}/>
+        <Route path="/job/:id" element={<JobPage deleteJob={deleteJob}/>} loader={jobLoader}/>
   
         <Route path="*" element={<NotFound/>}/>
   
