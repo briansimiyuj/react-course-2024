@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout"
 import JobsPage from "./pages/JobsPage"
 import NotFound from "./pages/NotFound"
 import JobPage, { jobLoader } from "./pages/JobPage"
+import AddJob from "./pages/AddJob"
 
 const router = createRouter(
   
@@ -14,6 +15,8 @@ const router = createRouter(
       <Route index element={<HomePage/>}/>
 
       <Route path="/jobs" element={<JobsPage/>}/>
+
+      <Route path="/add-job" element={<AddJob/>}/>
       
       <Route path="/job/:id" element={<JobPage/>} loader={jobLoader}/>
 
