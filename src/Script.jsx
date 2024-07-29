@@ -27,7 +27,11 @@ const Script = () =>{
 
   const deleteJob = async(id) =>{
   
-    console.log('delete job', id)
+    const response = await fetch(`/api/jobs/${id}`, {
+
+      method: 'DELETE'
+
+    })
   
   }
   
