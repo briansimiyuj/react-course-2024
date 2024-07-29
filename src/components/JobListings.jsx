@@ -13,7 +13,7 @@ const JobListings = ({ isHomePage }) =>{
     
         const fetchJobs = async() =>{
 
-            const API_URL = isHomePage ? "http://localhost:8000/jobs?_limit=3" : "http://localhost:8000/jobs"
+            const API_URL = isHomePage ? "/api/jobs?_limit=3" : "/api/jobs"
         
             try{
                 
