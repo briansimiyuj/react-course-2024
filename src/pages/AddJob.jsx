@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const AddJob = () =>{
+const AddJob = ({ addJobSubmit }) => {
 
     const [title, setTitle] = useState(''),
          [type, setType] = useState('Full-Time'),
@@ -10,7 +11,8 @@ const AddJob = () =>{
          [companyName, setCompanyName] = useState(''),
          [companyDescription, setCompanyDescription] = useState(''),
          [contactEmail, setContactEmail] = useState(''),
-         [contactPhone, setContactPhone] = useState('')
+         [contactPhone, setContactPhone] = useState(''),
+         navigate = useNavigate()
 
 
     const submitForm = async(e) =>{
@@ -35,7 +37,9 @@ const AddJob = () =>{
 
         }
 
-        console.log(newJob)
+        addJobSubmit(newJob)
+
+        return navigate('/jobs')
     
     }
 

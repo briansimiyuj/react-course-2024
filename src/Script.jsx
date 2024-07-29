@@ -6,29 +6,35 @@ import NotFound from "./pages/NotFound"
 import JobPage, { jobLoader } from "./pages/JobPage"
 import AddJob from "./pages/AddJob"
 
-const router = createRouter(
-  
-  createRoutes(
-
-    <Route path="/" element={<MainLayout/>}>
-
-      <Route index element={<HomePage/>}/>
-
-      <Route path="/jobs" element={<JobsPage/>}/>
-
-      <Route path="/add-job" element={<AddJob/>}/>
-      
-      <Route path="/job/:id" element={<JobPage/>} loader={jobLoader}/>
-
-      <Route path="*" element={<NotFound/>}/>
-
-    </Route>
-
-  )
-
-)
-
 const Script = () =>{
+  
+  const addJob = (newJob) =>{
+  
+    console.log(newJob) 
+  
+  }
+  
+  const router = createRouter(
+    
+    createRoutes(
+  
+      <Route path="/" element={<MainLayout/>}>
+  
+        <Route index element={<HomePage/>}/>
+  
+        <Route path="/jobs" element={<JobsPage/>}/>
+  
+        <Route path="/add-job" element={<AddJob addJobSubmit={addJob}/>}/>
+        
+        <Route path="/job/:id" element={<JobPage/>} loader={jobLoader}/>
+  
+        <Route path="*" element={<NotFound/>}/>
+  
+      </Route>
+  
+    )
+  
+  )
 
   return <RouterProvider router={router}/>
 
